@@ -1,4 +1,4 @@
-# Generated from upstream OpenClaw schema at rev 5f0e97b22ae9c4dc2fb9c48da9c08eeb6fa326af. DO NOT EDIT.
+# Generated from upstream OpenClaw schema at rev fa04e622013f2fe6ad47a2e52e828eb11e768ece. DO NOT EDIT.
 # Generator: nix/scripts/generate-config-options.ts
 { lib }:
 let
@@ -7512,7 +7512,12 @@ in
           default = null;
         };
         capabilities = lib.mkOption {
-          type = t.nullOr (t.listOf (t.str));
+          type = t.nullOr (t.oneOf [ (t.listOf (t.str)) (t.submodule { options = {
+          interactiveReplies = lib.mkOption {
+            type = t.nullOr (t.bool);
+            default = null;
+          };
+        }; }) ]);
           default = null;
         };
         channels = lib.mkOption {
@@ -8020,7 +8025,12 @@ in
         default = null;
       };
       capabilities = lib.mkOption {
-        type = t.nullOr (t.listOf (t.str));
+        type = t.nullOr (t.oneOf [ (t.listOf (t.str)) (t.submodule { options = {
+        interactiveReplies = lib.mkOption {
+          type = t.nullOr (t.bool);
+          default = null;
+        };
+      }; }) ]);
         default = null;
       };
       channels = lib.mkOption {
